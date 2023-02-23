@@ -50,10 +50,13 @@ Route::resource('/post', PostController::class) ->names(
 );
 Route::get('/llamada', [LlamadaController::class, 'index']);
 Route::get('/llamada/edit/{id}', [LlamadaController::class, 'edit']);
+Route::get('/llamada/show/{nombre}/{edad}', [LlamadaController::class, 'showData']);
 
-
-Route::resource('/post/{id}', PostController::class);
-Route::resource('/post/{id}/edit', PostController::class); 
+//Route::resource('/post/{id}', PostController::class);
+//Route::resource('/post/{id}/edit', PostController::class); 
 
 Route::get('post/contactPost', 'PostController@contact');
+Route::get('/post/showData', 'PostController@showData');
+
+Route::get('/llamada/blades', [LlamadaController::class, 'blades']);
 
