@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController; 
 use App\Http\Controllers\LlamadaController; 
+use App\Http\Controllers\NotesController; 
+
 
 
 /*
@@ -55,8 +57,21 @@ Route::get('/llamada/show/{nombre}/{edad}', [LlamadaController::class, 'showData
 //Route::resource('/post/{id}', PostController::class);
 //Route::resource('/post/{id}/edit', PostController::class); 
 
+
+Route::get('/insertar', [Notes::class, 'insertar']);
+Route::get('/leer', [Notes::class, 'leer']);
+Route::get('/actualizar', [Notes::class, 'actualizar']);
+Route::get('/eliminar', [Notes::class, 'eliminar']);
+
+Route::get('/leerTodos', [NotesController::class, 'leerTodos']);
+
+
+
 Route::get('post/contactPost', 'PostController@contact');
 Route::get('/post/showData', 'PostController@showData');
 
 Route::get('/llamada/blades', [LlamadaController::class, 'blades']);
+
+
+
 
