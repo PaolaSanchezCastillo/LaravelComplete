@@ -6,7 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.13.3/b-2.3.5/sl-1.6.1/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="Editor-2.1.1/css/editor.dataTables.css">
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.13.3/b-2.3.5/sl-1.6.1/datatables.min.js"></script>
+<script type="text/javascript" src="Editor-2.1.1/js/dataTables.editor.js"></script>
+
+    
     <title>Document</title>
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -18,8 +26,8 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="">Products</a>
+              <a class="nav-link" href="#">Employees</a>
               <a class="nav-link disabled">Disabled</a>
             </div>
           </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController; 
 use App\Http\Controllers\LlamadaController; 
 use App\Http\Controllers\NotesController; 
-
+use App\Http\Controllers\ProductsController; 
 
 
 /*
@@ -18,9 +18,7 @@ use App\Http\Controllers\NotesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('layouts.app'); });
 
 //Route::get('/contact', function(){  return view('contac'); });
 
@@ -63,6 +61,16 @@ Route::get('/leer', [Notes::class, 'leer']);
 Route::get('/actualizar', [Notes::class, 'actualizar']);
 Route::get('/eliminar', [Notes::class, 'eliminar']);
 
+// Products
+
+Route::get('/indexProducts', [ProductsController::class, 'index']);
+Route::get('/listaProducts', [ProductsController::class, 'lista']);
+
+
+
+
+
+
 Route::get('/leerTodos', [NotesController::class, 'leerTodos']);
 
 
@@ -75,3 +83,7 @@ Route::get('/llamada/blades', [LlamadaController::class, 'blades']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
