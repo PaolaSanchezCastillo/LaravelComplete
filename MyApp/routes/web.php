@@ -64,7 +64,10 @@ Route::get('/eliminar', [Notes::class, 'eliminar']);
 // Products
 
 Route::get('/indexProducts', [ProductsController::class, 'index']);
-Route::get('/listaProducts', [ProductsController::class, 'lista']);
+Route::get('/editProduct/{id}', [ProductsController::class, 'edit']);
+Route::get('/updateProduct', [ProductsController::class, 'update']);
+Route::get('/deleteProduct/{id}', [ProductsController::class, 'delete']);
+
 
 
 

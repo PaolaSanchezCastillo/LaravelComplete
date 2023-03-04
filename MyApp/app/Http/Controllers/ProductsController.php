@@ -19,5 +19,15 @@ class ProductsController extends Controller
         return View::make('products.index')->with('products', $products);
     }
 
+    public function edit($id){
+            $product = Product::select('ProductID', 'ProductName', 'Categories.CategoryName', 'UnitPrice', 'UnitsInStock' )
+       ->join('Categories', 'Products.CategoryID', '=', 'Categories.CategoryID')
+       ->where('ProductID', $id)
+       ->get();
+
+        return View('products.edit',compact('product'));
+
+    }
+
 
 }
