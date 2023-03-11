@@ -18,9 +18,13 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
+Route::group(['middleware' => 'web'], function () {
+
 Route::get('/', function () {return view('layouts.app'); });
 
 //Route::get('/contact', function(){  return view('contac'); });
+
+
 
 Route::get('/prueba', function () {
     // return view('welcome');
@@ -65,13 +69,8 @@ Route::get('/eliminar', [Notes::class, 'eliminar']);
 
 Route::get('/indexProducts', [ProductsController::class, 'index']);
 Route::get('/editProduct/{id}', [ProductsController::class, 'edit']);
-Route::get('/updateProduct', [ProductsController::class, 'update']);
+Route::put('/updateProduct', [ProductsController::class, 'update']);
 Route::get('/deleteProduct/{id}', [ProductsController::class, 'delete']);
-
-
-
-
-
 
 
 Route::get('/leerTodos', [NotesController::class, 'leerTodos']);
@@ -90,3 +89,5 @@ Route::get('/llamada/blades', [LlamadaController::class, 'blades']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+});
