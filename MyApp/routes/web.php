@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LlamadaController; 
 use App\Http\Controllers\NotesController; 
 use App\Http\Controllers\ProductsController; 
-
+use App\Http\Controllers\ArchivosFotograficosController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +70,12 @@ Route::get('/eliminar', [Notes::class, 'eliminar']);
 Route::get('/indexProducts', [ProductsController::class, 'index']);
 Route::get('/editProduct/{id}', [ProductsController::class, 'edit']);
 Route::put('/updateProduct', [ProductsController::class, 'update']);
-Route::get('/deleteProduct/{id}', [ProductsController::class, 'delete']);
+Route::get('/deleteProduct/{id}', [ProductsController::class, 'eliminaProducto']);
+
+// Archivos Fotograficos
+
+Route::get('indexArchivosFotograficos', [ArchivosFotograficosController::class, 'index']); 
+Route::post('guardarArchivoFotografico','App\Http\Controllers\ArchivosFotograficosController@store');
 
 
 Route::get('/leerTodos', [NotesController::class, 'leerTodos']);

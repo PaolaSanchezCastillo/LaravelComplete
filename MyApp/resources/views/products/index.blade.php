@@ -18,9 +18,6 @@
 
 
 
-@include('products.lista')
 
-@endsection
-@push('js')
-    
-@endpush
+
+@section('content')

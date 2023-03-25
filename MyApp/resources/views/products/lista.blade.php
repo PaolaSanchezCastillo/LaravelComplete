@@ -1,4 +1,9 @@
+
+
+
+
 @if (count($products) > 0 )
+
     
    <table id="example" class="table table-striped"
     style="width:100%">
@@ -21,9 +26,11 @@
         <td>{{$product->CategoryName}}</td>
         <td>{{$product->UnitPrice}}</td>
         <td>{{$product->UnitsInStock}}</td>
-        <td><button class=" btn btn-warning"> <a href="editProduct/{{$product->ProductID}}">
-       Actualizar </a></button>
-            <button class="btn btn-danger">Eliminar</button></td>
+        <td><button class=" btn btn-warning">
+            <a href="editProduct/{{$product->ProductID}}">
+       Actualizar</a>
+    </button>
+        <button class="btn btn-danger"><a href="deleteProduct/{{$product->ProductID}}">Eliminar</a></button></td>
       </tr>
       @endforeach
      

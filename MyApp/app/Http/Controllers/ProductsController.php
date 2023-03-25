@@ -17,6 +17,7 @@ class ProductsController extends Controller
 
            $products =  Product::select('ProductID', 'ProductName', 'Categories.CategoryName', 'UnitPrice', 'UnitsInStock' )
                               ->join('Categories', 'Products.CategoryID', '=', 'Categories.CategoryID')
+                              ->where('Discontinued', '=', 0)
                               ->get();
            
         return View::make('products.index')->with('products', $products);
@@ -40,18 +41,12 @@ class ProductsController extends Controller
         $productName = $request->input('productName'); 
         $categoryName = $request->input('categoryName'); 
 
-    return  $categoryID = Categories::select('CategoryID')
+      $categoryID = Categories::select('CategoryID')
         ->where('CategoryName',$categoryName)
-        ->get();
-
-         
-
+        ->first();
         $unitPrice = $request->input('unitPrice'); 
         $unitsInStock = $request->input('unitsInStock'); 
 
-
-
-       
        $validate =  $request->validate([
             'productName' => 'required', 
             'categoryName'=> 'required', 
@@ -59,8 +54,6 @@ class ProductsController extends Controller
             'unitsInStock' => 'required'
 
         ]);
-
-
 
     $update = Product::where('ProductID', $id)
                // ->get();
@@ -72,6 +65,28 @@ class ProductsController extends Controller
 
        return redirect('/indexProducts');       
         
+    }
+
+
+    public function eliminaProducto($id){
+        $elimina = Product::where('ProductID', $id )->first(); 
+       // Soft Delete (El metodo ideal)
+        if($elimina){
+           $softDelete =  Product::where('ProductID', $id )
+           ->update(['Discontinued'=> 1]); 
+        }
+        else{
+            return "Error"; 
+        // Hard Delete (no recomendado)
+            $eliminacion = Product::where('ProductID', $id )
+            ->delete($id); 
+        }
+
+
+        if($softDelete >=1){
+            return redirect('/indexProducts');       
+        }
+
     }
 
 
