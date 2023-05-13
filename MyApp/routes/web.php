@@ -6,7 +6,7 @@ use App\Http\Controllers\LlamadaController;
 use App\Http\Controllers\NotesController; 
 use App\Http\Controllers\ProductsController; 
 use App\Http\Controllers\ArchivosFotograficosController; 
-
+use App\Http\Controllers\PDFController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,11 +88,19 @@ Route::get('/post/showData', 'PostController@showData');
 Route::get('/llamada/blades', [LlamadaController::class, 'blades']);
 
 
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']); 
+
+Route::get('/sendMail', [App\Http\Controllers\PruebaMailController::class, 'index']);
 
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/sendMail', [App\Http\Controllers\PruebaMailController::class, 'index']);
+Route::get('/sendMailconAdjunto', [App\Http\Controllers\PruebaMailController::class, 'pruebaMailAdjunto']);
+
 
 });
