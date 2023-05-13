@@ -72,6 +72,10 @@ Route::get('/editProduct/{id}', [ProductsController::class, 'edit']);
 Route::put('/updateProduct', [ProductsController::class, 'update']);
 Route::get('/deleteProduct/{id}', [ProductsController::class, 'eliminaProducto']);
 
+Route::get('/exportExcel', [ProductsController::class, 'exportProduct']);
+
+
+
 // Archivos Fotograficos
 
 Route::get('indexArchivosFotograficos', [ArchivosFotograficosController::class, 'index']); 
@@ -101,6 +105,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/sendMail', [App\Http\Controllers\PruebaMailController::class, 'index']);
 Route::get('/sendMailconAdjunto', [App\Http\Controllers\PruebaMailController::class, 'pruebaMailAdjunto']);
+
+
 
 
 });

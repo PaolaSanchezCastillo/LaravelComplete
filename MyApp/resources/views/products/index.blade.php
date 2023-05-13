@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1>Products</h1>
+<h1>Products</h1> <button class="btn btn-primary "><a href="exportExcel">Descargar Excel</a></button>
 
 @if (count($errors) > 0 )
 <div class="alert alert-danger" role="alert">
@@ -15,6 +15,8 @@
   </div>
     
 @endif
+
+
 
 
 

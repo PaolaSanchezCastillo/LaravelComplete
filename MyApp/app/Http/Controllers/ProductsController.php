@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\View;
 use  App\Models\Product;
 use  App\Models\Categories;
 use Illuminate\Http\RedirectResponse;
+use App\Exports\ProductExport;
+use Excel;
 
 use Illuminate\Http\Request;
 //use Request;
@@ -19,8 +21,18 @@ class ProductsController extends Controller
                               ->join('Categories', 'Products.CategoryID', '=', 'Categories.CategoryID')
                               ->where('Discontinued', '=', 0)
                               ->get();
+            
            
         return View::make('products.index')->with('products', $products);
+
+    }
+
+    public function export(){
+        return Excel::download(new ProductsController, 'productos.xlsx');
+    }
+
+    public function exportProduct(){
+        return Excel::download(new ProductExport, 'productos2.xlsx');
     }
 
     public function edit($id){
