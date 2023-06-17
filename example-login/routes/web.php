@@ -28,6 +28,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
         // Register Routes
     Route::get('/registrarse', 'RegisterController@show')->name('register.show');
     Route::post('/registrarse', 'RegisterController@register')->name('register.perform');
+    Route::get('/login', 'LoginController@show')->name('auth.login');
     
     });
     // Login 
