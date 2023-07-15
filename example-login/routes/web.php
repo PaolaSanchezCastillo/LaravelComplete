@@ -15,7 +15,7 @@ use App\Http\Controllers\RegisterController;
 
 
 
-Route::group(['namespace' => 'App\Http\Controllers'], function(){
+    Route::group(['namespace' => 'App\Http\Controllers'], function(){
 
 
 
@@ -44,9 +44,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
      
     Route::get('/logout' , 'LogoutController@performing');
 
+    // Proveedores
+
+
+    Route::get('/proveedores', 'ProveedorController@index'); 
+    // ContactoProveedores
+    Route::get('/contactoProveedores', 'ContactoProveedorController@index'); 
 
         
     });
+
+
+
     
 });
 
